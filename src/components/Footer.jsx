@@ -4,7 +4,7 @@ import styled from "styled-components";
 const FooterWrapper = styled.footer`
   margin-top: 20px;
   text-align: center;
-  font-size: 16px;
+  font-size: 19px;
   border-top: 2px solid var(--border-color);
   padding-top: 15px;
 `;
@@ -24,6 +24,7 @@ const SocialLinksContainer = styled.div`
   justify-content: center;
   gap: 20px;
   margin-top: 12px;
+  font-size: 19px;
 `;
 
 const Footer = () => {

@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+const CardLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+`;
+
 const Card = styled.div`
   background-color: var(--card-color);
   border: 2px solid var(--border-color);
   padding: 20px;
   transition: all 0.3s;
   cursor: pointer;
+  height: 100%;
 
   &:hover {
     transform: translateY(-5px);
@@ -23,15 +30,15 @@ const Title = styled.h3`
 
 const Description = styled.p`
   margin-bottom: 15px;
+  color: var(--text-color);
 `;
 
-const Link = styled.a`
+const LaunchText = styled.span`
   color: var(--text-color);
-  text-decoration: none;
   border-bottom: 1px dashed var(--text-color);
   padding-bottom: 2px;
 
-  &:hover {
+  ${CardLink}:hover & {
     border-bottom-style: solid;
     color: var(--accent-color);
   }
@@ -39,11 +46,13 @@ const Link = styled.a`
 
 const ProjectCard = ({ project }) => {
   return (
-    <Card>
-      <Title>{project.title}</Title>
-      <Description>{project.description}</Description>
-      <Link href={project.link}>LAUNCH &gt;</Link>
-    </Card>
+    <CardLink href={project.link} target="_blank" rel="noopener noreferrer">
+      <Card>
+        <Title>{project.title}</Title>
+        <Description>{project.description}</Description>
+        <LaunchText>LAUNCH &gt;</LaunchText>
+      </Card>
+    </CardLink>
   );
 };
 

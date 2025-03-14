@@ -5,17 +5,25 @@ const FooterWrapper = styled.footer`
   margin-top: 20px;
   text-align: center;
   font-size: 16px;
-  border-top: 2px solid var(--text-color);
-  padding-top: 10px;
+  border-top: 2px solid var(--border-color);
+  padding-top: 15px;
 `;
 
-const BlogLink = styled.a`
+const Link = styled.a`
   color: var(--accent-color);
   text-decoration: none;
+  transition: color 0.2s;
 
   &:hover {
     text-decoration: underline;
   }
+`;
+
+const SocialLinksContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
 `;
 
 const Footer = () => {
@@ -23,8 +31,16 @@ const Footer = () => {
     <FooterWrapper>
       <p>
         &gt; MORE MURMURINGS:{" "}
-        <BlogLink href="https://silv.blog">SILV.BLOG</BlogLink>
+        <Link href="https://silv.blog">SILV.BLOG</Link>
       </p>
+      <SocialLinksContainer>
+        <Link href="https://x.com/mattsilv" target="_blank" rel="noopener noreferrer">
+          @mattsilv
+        </Link>
+        <Link href="https://warpcast.com/silv.eth" target="_blank" rel="noopener noreferrer">
+          silv.eth
+        </Link>
+      </SocialLinksContainer>
     </FooterWrapper>
   );
 };

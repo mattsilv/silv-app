@@ -26,6 +26,13 @@ const App = () => {
       description: "explorations of curiosity",
       link: "https://www.silv.blog/",
     },
+    {
+      id: 4,
+      title: "CODESIGHT",
+      description:
+        "An open source utility to help you efficiently paste your entire code base to an LLM for coding insights",
+      link: "https://github.com/mattsilv/codesight",
+    },
   ];
 
   return (

@@ -1,0 +1,41 @@
+import React from "react";
+import Header from "./components/Header";
+import ProjectGrid from "./components/ProjectGrid";
+import Footer from "./components/Footer";
+import GlobalStyles from "./GlobalStyles";
+
+const App = () => {
+  const thingies = [
+    {
+      id: 1,
+      title: "SLEEP",
+      description:
+        "An app to help you fall asleep using the same technique navy seals use. Vibe coded with Claude code.",
+      link: "https://sleep.silv.app/",
+    },
+    {
+      id: 2,
+      title: "AIRPORT CALC",
+      description:
+        "A silly app to tell you what time to leave for the airport. Vibe coded with Cursor.",
+      link: "https://airportcalc.silv.app/",
+    },
+    {
+      id: 3,
+      title: "SILV.BLOG",
+      description: "explorations of curiosity",
+      link: "https://www.silv.blog/",
+    },
+  ];
+
+  return (
+    <>
+      <GlobalStyles />
+      <Header />
+      <ProjectGrid projects={thingies} />
+      <Footer />
+    </>
+  );
+};
+
+export default App;

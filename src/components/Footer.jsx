@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+// Explicitly import from the package
 import { Link as RouterLink, useLocation } from "react-router-dom";
 
 const FooterWrapper = styled.footer`

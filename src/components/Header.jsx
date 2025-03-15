@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -7,6 +8,11 @@ const HeaderWrapper = styled.header`
   margin-bottom: 40px;
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 20px;
+`;
+
+const TitleLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 const Title = styled.h1`
@@ -29,7 +35,9 @@ const Subtitle = styled.p`
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Title>silv.app</Title>
+      <TitleLink to="/">
+        <Title>silv.app</Title>
+      </TitleLink>
       <Subtitle>&gt; CTO, vibe coder, AI enthusiast</Subtitle>
     </HeaderWrapper>
   );

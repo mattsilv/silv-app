@@ -25,15 +25,48 @@ const Grid = styled.div`
 `;
 
 const ProjectGrid = ({ projects }) => {
+  // Filter projects into app, utility, and content categories
+  const appProjects = projects.filter(project => 
+    project.category === "app"
+  );
+  
+  const utilityProjects = projects.filter(project => 
+    project.category === "utility"
+  );
+
+  const contentProjects = projects.filter(project => 
+    project.category === "content"
+  );
+
   return (
-    <GridWrapper>
-      <Title>apps</Title>
-      <Grid>
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </Grid>
-    </GridWrapper>
+    <>
+      <GridWrapper>
+        <Title>apps</Title>
+        <Grid>
+          {appProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </Grid>
+      </GridWrapper>
+      
+      <GridWrapper>
+        <Title>utilities</Title>
+        <Grid>
+          {utilityProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </Grid>
+      </GridWrapper>
+
+      <GridWrapper>
+        <Title>content</Title>
+        <Grid>
+          {contentProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </Grid>
+      </GridWrapper>
+    </>
   );
 };
 

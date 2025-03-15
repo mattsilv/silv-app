@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// Explicitly import from the package
+// Conditionally import to handle being outside Router context
 import { Link as RouterLink, useLocation } from "react-router-dom";
 
 const FooterWrapper = styled.footer`
@@ -96,8 +96,18 @@ const LinkedInIcon = () => (
 );
 
 const Footer = () => {
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  // Safely check if we're in a router context
+  let isHomePage = false;
+  let hasRouter = false;
+  
+  try {
+    const location = useLocation();
+    isHomePage = location.pathname === "/";
+    hasRouter = true;
+  } catch (error) {
+    // Not in a router context, so we'll assume not on home page
+    console.log("Footer not in Router context");
+  }
 
   return (
     <FooterWrapper>
@@ -117,8 +127,14 @@ const Footer = () => {
         </Link>
       </SocialLinksContainer>
       <FooterLinksContainer>
-        {!isHomePage && <StyledRouterLink to="/">Back to silv.app</StyledRouterLink>}
-        <StyledRouterLink to="/privacy">Privacy Policy</StyledRouterLink>
+        {hasRouter ? (
+          <>
+            {!isHomePage && <StyledRouterLink to="/">Back to silv.app</StyledRouterLink>}
+            <StyledRouterLink to="/privacy">Privacy Policy</StyledRouterLink>
+          </>
+        ) : (
+          <Link href="/privacy">Privacy Policy</Link>
+        )}
       </FooterLinksContainer>
     </FooterWrapper>
   );

@@ -30,8 +30,15 @@ const App = () => {
       id: 4,
       title: "CODESIGHT",
       description:
-        "An open source utility to help you efficiently paste your entire code base to an LLM for coding insights",
+        "An open source shell script to help you efficiently paste your entire code base to an LLM for coding insights",
       link: "https://github.com/mattsilv/codesight",
+    },
+    {
+      id: 5,
+      title: "MARKDOWN REPORT",
+      description:
+        "A utility to paste markdown from LLM outputs like deep research reports and generate a beautiful HTML page that can be printed to PDF",
+      link: "https://markdown.silv.app/",
     },
   ];
 

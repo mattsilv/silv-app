@@ -9,6 +9,14 @@ const FooterWrapper = styled.footer`
   font-size: 19px;
   border-top: 2px solid var(--border-color);
   padding-top: 15px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  @media (max-width: 768px) {
+    font-size: 17px;
+    padding: 15px 10px 0;
+  }
 `;
 
 const Link = styled.a`
@@ -18,9 +26,14 @@ const Link = styled.a`
   display: flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
 
   &:hover {
     text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 
@@ -28,9 +41,14 @@ const StyledRouterLink = styled(RouterLink)`
   color: var(--accent-color);
   text-decoration: none;
   transition: color 0.2s;
+  white-space: nowrap;
 
   &:hover {
     text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 
@@ -41,6 +59,17 @@ const SocialLinksContainer = styled.div`
   margin-top: 12px;
   font-size: 19px;
   align-items: center;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 12px;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 const FooterLinksContainer = styled.div`
@@ -49,11 +78,22 @@ const FooterLinksContainer = styled.div`
   gap: 20px;
   margin-top: 12px;
   font-size: 16px;
+  flex-wrap: wrap;
+  
+  @media (max-width: 480px) {
+    gap: 15px;
+    margin-top: 20px;
+  }
 `;
 
 const SocialLabel = styled.span`
   color: var(--text-color);
   margin-right: 8px;
+  
+  @media (max-width: 480px) {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
 `;
 
 const IconSvg = styled.svg`

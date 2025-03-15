@@ -26,6 +26,12 @@ const GlobalStyles = createGlobalStyle`
     max-width: 960px;
     margin: 0 auto;
     position: relative;
+    overflow-x: hidden;
+    
+    @media (max-width: 768px) {
+      padding: 15px;
+      font-size: 16px;
+    }
   }
   
   body::after {

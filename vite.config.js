@@ -5,8 +5,15 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
+    // Don't mark react-router-dom as external - it needs to be bundled
+    minify: true,
+    sourcemap: false,
     rollupOptions: {
-      external: ['react-router-dom']
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'styled-components'],
+        }
+      }
     }
   }
 })

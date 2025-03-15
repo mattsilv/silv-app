@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prebuild": "vite build --mode development --outDir dist-check && rm -rf dist-check"
+    "test-build": "vite build --outDir test-dist && serve test-dist -p 5173",
+    "precommit": "vite build --outDir dist-check && rm -rf dist-check",
+    "prepare": "husky install || echo 'Skipping husky install'"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -25,6 +27,8 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "husky": "^9.0.11",
+    "serve": "^14.2.1",
     "vite": "^6.2.0"
   }
 }

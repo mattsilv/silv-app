@@ -4,6 +4,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --bg-color: #121212;
     --text-color: #e0e0e0;
+    --text-secondary: #a0a0a0;
     --accent-color: #60a5fa;
     --border-color: #3d4852;
     --card-color: #1e1e1e;

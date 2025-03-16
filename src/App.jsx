@@ -59,6 +59,15 @@ const App = () => {
       category: "utility",
     },
     {
+      id: 8,
+      title: "INFERENCE PRICING",
+      description:
+        "A table of up-to-date pricing from the top AI inference providers.",
+      link: "https://inference.silv.app/",
+      githubUrl: "https://github.com/mattsilv/inference",
+      category: "utility",
+    },
+    {
       id: 3,
       title: "SILV.BLOG",
       description: "explorations of curiosity",

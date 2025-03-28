@@ -52,8 +52,10 @@ const ProjectGrid = ({ projects }) => {
     const fetchBlogPosts = async () => {
       try {
         setBlogLoading(true);
+        // Add timestamp to prevent browser caching
+        const timestamp = new Date().getTime();
         const response = await fetch(
-          "https://silv.blog/wp-json/wp/v2/posts?per_page=3&_fields=id,title,excerpt,link,date"
+          `https://silv.blog/wp-json/wp/v2/posts?per_page=3&_fields=id,title,excerpt,link,date&_=${timestamp}`
         );
 
         if (!response.ok) {

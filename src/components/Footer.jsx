@@ -135,6 +135,14 @@ const LinkedInIcon = () => (
   </IconSvg>
 );
 
+// Mail icon
+const MailIcon = () => (
+  <IconSvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </IconSvg>
+);
+
 const Footer = () => {
   // Safely check if we're in a router context
   let isHomePage = false;
@@ -164,6 +172,9 @@ const Footer = () => {
         </Link>
         <Link href="https://www.linkedin.com/in/mattsilv/" target="_blank" rel="noopener noreferrer">
           <LinkedInIcon /> LinkedIn
+        </Link>
+        <Link href="https://silv.blog/subscribe/" target="_blank" rel="noopener noreferrer">
+          <MailIcon /> Email List
         </Link>
       </SocialLinksContainer>
       <FooterLinksContainer>

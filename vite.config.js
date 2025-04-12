@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true, // Expose to all network interfaces
-    open: true  // Auto-open in browser
+    open: true,  // Auto-open in browser
+    port: 5180 // Specify the port
   },
   build: {
     // Don't mark react-router-dom as external - it needs to be bundled

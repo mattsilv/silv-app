@@ -19,6 +19,8 @@ const Card = styled.div`
   transition: all 0.3s;
   cursor: pointer;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-5px);
@@ -36,6 +38,7 @@ const Title = styled.h3`
 const Description = styled.p`
   margin-bottom: 15px;
   color: var(--text-color);
+  flex-grow: 1;
 `;
 
 const FooterRow = styled.div`

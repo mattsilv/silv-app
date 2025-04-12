@@ -75,6 +75,15 @@ const App = () => {
       // No GitHub link for SILV.BLOG
       category: "content",
     },
+    {
+      id: 9,
+      title: "Learning Style Quiz",
+      description:
+        "a quiz to determine your learning style by generating an AI prompt to teach you any topic exactly how you need to learn it.",
+      link: "https://learn.silv.app/",
+      githubUrl: "https://github.com/mattsilv/silv-learn",
+      category: "app",
+    },
   ];
 
   return (

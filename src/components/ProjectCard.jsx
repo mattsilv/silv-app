@@ -49,12 +49,17 @@ const FooterRow = styled.div`
 
 const LaunchText = styled.span`
   color: var(--text-color);
-  border-bottom: 1px dashed var(--text-color);
-  padding-bottom: 2px;
+  border-bottom: ${(props) => (props.isRepo ? "none" : "1px dashed var(--text-color)")};
+  padding: ${(props) => (props.isRepo ? "6px 12px" : "0 0 2px 0")};
+  background-color: ${(props) => (props.isRepo ? "var(--accent-color)" : "transparent")};
+  color: ${(props) => (props.isRepo ? "var(--card-color)" : "var(--text-color)")};
+  border-radius: ${(props) => (props.isRepo ? "4px" : "0")};
+  transition: all 0.3s;
 
   ${CardLink}:hover & {
-    border-bottom-style: solid;
-    color: var(--accent-color);
+    border-bottom-style: ${(props) => (props.isRepo ? "none" : "solid")};
+    color: ${(props) => (props.isRepo ? "var(--card-color)" : "var(--accent-color)")};
+    background-color: ${(props) => (props.isRepo ? "var(--accent-color-darker, #4F46E5)" : "transparent")}; /* Assuming --accent-color-darker or fallback */
   }
 `;
 
@@ -97,7 +102,7 @@ const ProjectCard = ({ project }) => {
           <Description>{project.description}</Description>
           
           <FooterRow>
-            <LaunchText>{launchText} &gt;</LaunchText>
+            <LaunchText isRepo={isGitHubLink}>{launchText} &gt;</LaunchText>
             {project.githubUrl && (
               <GitHubLink 
                 href={project.githubUrl} 

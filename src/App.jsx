@@ -84,6 +84,14 @@ const App = () => {
       githubUrl: "https://github.com/mattsilv/silv-learn",
       category: "app",
     },
+    {
+      id: 10,
+      title: "Win95 notes",
+      description:
+        "A simple app to pass someone a note in the old Windows 95 Notepad style interface, the text of the note is passed in the URL with a very simplistic cipher.",
+      link: "https://win95.silv.app/?t=filename.txt&c=khoor%2520zruog",
+      category: "app",
+    },
   ];
 
   return (

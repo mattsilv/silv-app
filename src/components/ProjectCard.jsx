@@ -48,18 +48,17 @@ const FooterRow = styled.div`
 `;
 
 const LaunchText = styled.span`
-  color: var(--text-color);
-  border-bottom: ${(props) => (props.isRepo ? "none" : "1px dashed var(--text-color)")};
-  padding: ${(props) => (props.isRepo ? "6px 12px" : "0 0 2px 0")};
-  background-color: ${(props) => (props.isRepo ? "var(--accent-color)" : "transparent")};
-  color: ${(props) => (props.isRepo ? "var(--card-color)" : "var(--text-color)")};
-  border-radius: ${(props) => (props.isRepo ? "4px" : "0")};
+  padding: 6px 12px;
+  background-color: var(--accent-color);
+  color: var(--card-color);
+  border-radius: 4px;
   transition: all 0.3s;
+  border-bottom: none; /* Ensure no border-bottom */
 
   ${CardLink}:hover & {
-    border-bottom-style: ${(props) => (props.isRepo ? "none" : "solid")};
-    color: ${(props) => (props.isRepo ? "var(--card-color)" : "var(--accent-color)")};
-    background-color: ${(props) => (props.isRepo ? "var(--accent-color-darker, #4F46E5)" : "transparent")}; /* Assuming --accent-color-darker or fallback */
+    color: var(--card-color); /* Keep text color same on hover */
+    background-color: var(--accent-color-darker, #4F46E5); /* Darken background on hover */
+    border-bottom-style: none; /* Ensure no border-bottom on hover */
   }
 `;
 
@@ -102,7 +101,7 @@ const ProjectCard = ({ project }) => {
           <Description>{project.description}</Description>
           
           <FooterRow>
-            <LaunchText isRepo={isGitHubLink}>{launchText} &gt;</LaunchText>
+            <LaunchText>{launchText} &gt;</LaunchText>
             {project.githubUrl && (
               <GitHubLink 
                 href={project.githubUrl} 

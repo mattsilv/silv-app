@@ -92,6 +92,14 @@ const App = () => {
       link: "https://win95.silv.app/?t=filename.txt&c=khoor%2520zruog",
       category: "app",
     },
+    {
+      id: 11,
+      title: "FEELINGS",
+      description:
+        "An interactive vocabulary builder focused on emotional expression. Expand your range of feeling words to communicate with greater precision and self-awareness.",
+      link: "https://feelings.silv.app/",
+      category: "app",
+    },
   ];
 
   return (

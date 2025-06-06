@@ -8,11 +8,11 @@ const App = () => {
   const thingies = [
     {
       id: 1,
-      title: "SLEEP",
+      title: "RELAX",
       description:
         "An app to help you fall asleep using the same technique navy seals use. Vibe coded with Claude code.",
       link: "https://sleep.silv.app/",
-      // No public GitHub link for SLEEP app yet
+      githubUrl: "https://github.com/mattsilv/sleep",
       category: "app",
     },
     {
@@ -54,7 +54,7 @@ const App = () => {
       title: "SILV.APP",
       description:
         "A directory of all the micro apps I'm building. The code is open source. Feel free to copy it.",
-      link: "https://silv.app/",
+      link: "https://github.com/mattsilv/silv-app",
       githubUrl: "https://github.com/mattsilv/silv-app",
       category: "utility",
     },

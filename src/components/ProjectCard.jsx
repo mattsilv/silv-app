@@ -6,18 +6,11 @@ const CardContainer = styled.div`
   height: 100%;
 `;
 
-const CardLink = styled.a`
-  text-decoration: none;
-  color: inherit;
-  display: block;
-`;
-
 const Card = styled.div`
   background-color: var(--card-color);
   border: 2px solid var(--border-color);
   padding: 20px;
   transition: all 0.3s;
-  cursor: pointer;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -27,6 +20,14 @@ const Card = styled.div`
     box-shadow: 0 10px 20px rgba(96, 165, 250, 0.1);
     border-color: var(--accent-color);
   }
+`;
+
+const ContentArea = styled.a`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  flex-grow: 1;
+  cursor: pointer;
 `;
 
 const Title = styled.h3`
@@ -47,26 +48,46 @@ const FooterRow = styled.div`
   align-items: center;
 `;
 
-const LaunchText = styled.span`
+const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const LaunchButton = styled.a`
   padding: 6px 12px;
   background-color: var(--accent-color);
   color: var(--card-color);
   border-radius: 4px;
   transition: all 0.3s;
-  border-bottom: none; /* Ensure no border-bottom */
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 
-  ${CardLink}:hover & {
-    color: var(--card-color); /* Keep text color same on hover */
-    background-color: var(--accent-color-darker, #4F46E5); /* Darken background on hover */
-    border-bottom-style: none; /* Ensure no border-bottom on hover */
+  &:hover {
+    color: var(--card-color);
+    background-color: var(--accent-color-darker, #4F46E5);
   }
 `;
 
 const GitHubLink = styled.a`
   color: var(--text-color);
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: none;
   transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  
+  &:hover {
+    color: var(--accent-color);
+  }
+`;
+
+const DateText = styled.span`
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-style: italic;
+  cursor: help;
   
   &:hover {
     color: var(--accent-color);
@@ -76,8 +97,8 @@ const GitHubLink = styled.a`
 // GitHub icon as SVG for better quality
 const GitHubIcon = () => (
   <svg 
-    width="24" 
-    height="24" 
+    width="20" 
+    height="20" 
     viewBox="0 0 24 24" 
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +107,43 @@ const GitHubIcon = () => (
   </svg>
 );
 
+// Helper function to format launch date
+const formatLaunchDate = (dateString) => {
+  if (!dateString) return { display: null, tooltip: null };
+  
+  const date = new Date(dateString);
+  const now = new Date();
+  
+  // Calculate difference in days
+  const diffTime = Math.abs(now - date);
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  
+  // Format exact date for tooltip
+  const exactDate = date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  
+  // If launched this year, show "X months ago" or "X days ago"
+  if (date.getFullYear() === now.getFullYear()) {
+    const diffMonths = Math.floor(diffDays / 30);
+    
+    if (diffDays < 30) {
+      if (diffDays === 0) return { display: "today", tooltip: exactDate };
+      if (diffDays === 1) return { display: "yesterday", tooltip: exactDate };
+      return { display: `${diffDays} days ago`, tooltip: exactDate };
+    } else if (diffMonths === 1) {
+      return { display: "1 month ago", tooltip: exactDate };
+    } else {
+      return { display: `${diffMonths} months ago`, tooltip: exactDate };
+    }
+  }
+  
+  // For older projects, just show the year
+  return { display: date.getFullYear().toString(), tooltip: exactDate };
+};
+
 const ProjectCard = ({ project }) => {
   // Check if the main link is a GitHub link
   const isGitHubLink = project.link && project.link.includes('github.com');
@@ -93,32 +151,43 @@ const ProjectCard = ({ project }) => {
   // For GitHub links, use "VIEW REPO" instead of "LAUNCH"
   const launchText = isGitHubLink ? "VIEW REPO" : "LAUNCH";
   
+  // Format the launch date
+  const dateInfo = formatLaunchDate(project.launchDate);
+  
   return (
     <CardContainer>
-      <CardLink href={project.link} target="_blank" rel="noopener noreferrer">
-        <Card>
+      <Card>
+        <ContentArea href={project.link} target="_blank" rel="noopener noreferrer">
           <Title>{project.title}</Title>
           <Description>{project.description}</Description>
-          
-          <FooterRow>
-            <LaunchText>{launchText} &gt;</LaunchText>
+        </ContentArea>
+        
+        <FooterRow>
+          <LeftSection>
+            <LaunchButton 
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              {launchText} &gt;
+            </LaunchButton>
             {project.githubUrl && (
               <GitHubLink 
                 href={project.githubUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
-                }}
               >
                 <GitHubIcon />
               </GitHubLink>
             )}
-          </FooterRow>
-        </Card>
-      </CardLink>
+          </LeftSection>
+          {dateInfo.display && (
+            <DateText title={dateInfo.tooltip}>
+              {dateInfo.display}
+            </DateText>
+          )}
+        </FooterRow>
+      </Card>
     </CardContainer>
   );
 };

@@ -67,6 +67,11 @@ const DateText = styled.span`
   color: var(--text-secondary);
   font-size: 14px;
   font-style: italic;
+  cursor: help;
+  
+  &:hover {
+    color: var(--accent-color);
+  }
 `;
 
 // Helper function to decode HTML entities
@@ -95,6 +100,8 @@ const cleanExcerpt = (excerpt) => {
 
 // Helper function to format the post date as "X days ago"
 const formatTimeAgo = (dateString) => {
+  if (!dateString) return { display: null, tooltip: null };
+  
   const postDate = new Date(dateString);
   const now = new Date();
   
@@ -104,19 +111,33 @@ const formatTimeAgo = (dateString) => {
   // Convert to days
   const days = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
   
+  // Format exact date for tooltip
+  const exactDate = postDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  
   if (days === 0) {
-    return "Today";
+    return { display: "today", tooltip: exactDate };
   } else if (days === 1) {
-    return "Yesterday";
+    return { display: "yesterday", tooltip: exactDate };
+  } else if (days < 30) {
+    return { display: `${days} days ago`, tooltip: exactDate };
   } else {
-    return `${days} days ago`;
+    const months = Math.floor(days / 30);
+    if (months === 1) {
+      return { display: "1 month ago", tooltip: exactDate };
+    } else {
+      return { display: `${months} months ago`, tooltip: exactDate };
+    }
   }
 };
 
 const BlogCard = ({ post }) => {
   const decodedTitle = decodeHtmlEntities(post.title.rendered);
   const cleanedExcerpt = cleanExcerpt(post.excerpt.rendered);
-  const timeAgo = post.date ? formatTimeAgo(post.date) : "";
+  const dateInfo = post.date ? formatTimeAgo(post.date) : { display: null, tooltip: null };
   
   return (
     <CardContainer>
@@ -127,7 +148,11 @@ const BlogCard = ({ post }) => {
           
           <FooterRow>
             <ReadMoreText>READ MORE &gt;</ReadMoreText>
-            {timeAgo && <DateText>{timeAgo}</DateText>}
+            {dateInfo.display && (
+              <DateText title={dateInfo.tooltip}>
+                {dateInfo.display}
+              </DateText>
+            )}
           </FooterRow>
         </Card>
       </CardLink>

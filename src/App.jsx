@@ -14,6 +14,7 @@ const App = () => {
       link: "https://sleep.silv.app/",
       githubUrl: "https://github.com/mattsilv/sleep",
       category: "app",
+      launchDate: "2025-03-14",
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ const App = () => {
       link: "https://airportcalc.silv.app/",
       githubUrl: "https://github.com/mattsilv/airport-time-estimator",
       category: "app",
+      launchDate: "2025-03-14",
     },
     {
       id: 5,
@@ -31,15 +33,8 @@ const App = () => {
         "A utility to paste markdown from LLM outputs like deep research reports and generate a beautiful HTML page that can be printed to PDF",
       link: "https://markdown.silv.app/",
       githubUrl: "https://github.com/mattsilv/markdown-report",
-      category: "app",
-    },
-    {
-      id: 4,
-      title: "CODESIGHT",
-      description:
-        "An open source shell script to help you efficiently paste your entire code base to an LLM for coding insights",
-      link: "https://github.com/mattsilv/codesight",
       category: "utility",
+      launchDate: "2025-03-15",
     },
     {
       id: 7,
@@ -49,6 +44,7 @@ const App = () => {
       link: "https://github.com/mattsilv/silv-app",
       githubUrl: "https://github.com/mattsilv/silv-app",
       category: "utility",
+      launchDate: "2025-03-13",
     },
     {
       id: 12,
@@ -57,6 +53,7 @@ const App = () => {
         "Free real-time API for commodity prices including metals, energy, and agricultural products.",
       link: "https://datadocs.silv.app/commodities",
       category: "utility",
+      launchDate: "2025-07-26",
     },
     {
       id: 3,
@@ -65,6 +62,7 @@ const App = () => {
       link: "https://www.silv.blog/",
       // No GitHub link for SILV.BLOG
       category: "content",
+      launchDate: "2025-03-14",
     },
     {
       id: 9,
@@ -74,6 +72,7 @@ const App = () => {
       link: "https://learn.silv.app/",
       githubUrl: "https://github.com/mattsilv/silv-learn",
       category: "app",
+      launchDate: "2025-04-11",
     },
     {
       id: 10,
@@ -82,6 +81,7 @@ const App = () => {
         "A simple app to pass someone a note in the old Windows 95 Notepad style interface, the text of the note is passed in the URL with a very simplistic cipher.",
       link: "https://win95.silv.app/?t=filename.txt&c=khoor%2520zruog",
       category: "app",
+      launchDate: "2025-05-19",
     },
     {
       id: 11,
@@ -90,6 +90,7 @@ const App = () => {
         "An interactive vocabulary builder focused on emotional expression. Expand your range of feeling words to communicate with greater precision and self-awareness.",
       link: "https://feelings.silv.app/",
       category: "app",
+      launchDate: "2025-06-04",
     },
   ];
 

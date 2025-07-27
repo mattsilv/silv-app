@@ -42,14 +42,6 @@ const App = () => {
       category: "utility",
     },
     {
-      id: 6,
-      title: "DOCKER DEVCONTAINERS",
-      description:
-        "A collection of AI-ready development containers for various AI/ML frameworks and tools",
-      link: "https://github.com/mattsilv/ai-ready-dev-containers",
-      category: "utility",
-    },
-    {
       id: 7,
       title: "SILV.APP",
       description:
@@ -59,12 +51,11 @@ const App = () => {
       category: "utility",
     },
     {
-      id: 8,
-      title: "INFERENCE PRICING",
+      id: 12,
+      title: "COMMODITIES API",
       description:
-        "A table of up-to-date pricing from the top AI inference providers.",
-      link: "https://inference.silv.app/",
-      githubUrl: "https://github.com/mattsilv/inference",
+        "Free real-time API for commodity prices including metals, energy, and agricultural products.",
+      link: "https://datadocs.silv.app/commodities",
       category: "utility",
     },
     {

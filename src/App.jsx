@@ -6,6 +6,45 @@ import GlobalStyles from "./GlobalStyles";
 
 const App = () => {
   const thingies = [
+    // Apps (newest to oldest)
+    {
+      id: 13,
+      title: "SIGN PDF",
+      description:
+        "An open-source public good for creating eSign compliant PDFs. Privacy first - no data sent to any server. You shouldn't have to pay to sign a PDF.",
+      link: "https://sign.silv.app/",
+      githubUrl: "https://github.com/mattsilv/sign-pdf",
+      category: "app",
+      launchDate: "2025-09-05",
+    },
+    {
+      id: 11,
+      title: "FEELINGS",
+      description:
+        "An interactive vocabulary builder focused on emotional expression. Expand your range of feeling words to communicate with greater precision and self-awareness.",
+      link: "https://feelings.silv.app/",
+      category: "app",
+      launchDate: "2025-06-04",
+    },
+    {
+      id: 10,
+      title: "Win95 notes",
+      description:
+        "A simple app to pass someone a note in the old Windows 95 Notepad style interface, the text of the note is passed in the URL with a very simplistic cipher.",
+      link: "https://win95.silv.app/?t=filename.txt&c=khoor%2520zruog",
+      category: "app",
+      launchDate: "2025-05-19",
+    },
+    {
+      id: 9,
+      title: "Learning Style Quiz",
+      description:
+        "a quiz to determine your learning style by generating an AI prompt to teach you any topic exactly how you need to learn it.",
+      link: "https://learn.silv.app/",
+      githubUrl: "https://github.com/mattsilv/silv-learn",
+      category: "app",
+      launchDate: "2025-04-11",
+    },
     {
       id: 1,
       title: "RELAX",
@@ -25,6 +64,16 @@ const App = () => {
       githubUrl: "https://github.com/mattsilv/airport-time-estimator",
       category: "app",
       launchDate: "2025-03-14",
+    },
+    // Utilities (newest to oldest)
+    {
+      id: 12,
+      title: "COMMODITIES API",
+      description:
+        "Free real-time API for commodity prices including metals, energy, and agricultural products.",
+      link: "https://datadocs.silv.app/commodities",
+      category: "utility",
+      launchDate: "2025-07-26",
     },
     {
       id: 5,
@@ -46,15 +95,7 @@ const App = () => {
       category: "utility",
       launchDate: "2025-03-13",
     },
-    {
-      id: 12,
-      title: "COMMODITIES API",
-      description:
-        "Free real-time API for commodity prices including metals, energy, and agricultural products.",
-      link: "https://datadocs.silv.app/commodities",
-      category: "utility",
-      launchDate: "2025-07-26",
-    },
+    // Content
     {
       id: 3,
       title: "SILV.BLOG",
@@ -63,34 +104,6 @@ const App = () => {
       // No GitHub link for SILV.BLOG
       category: "content",
       launchDate: "2025-03-14",
-    },
-    {
-      id: 9,
-      title: "Learning Style Quiz",
-      description:
-        "a quiz to determine your learning style by generating an AI prompt to teach you any topic exactly how you need to learn it.",
-      link: "https://learn.silv.app/",
-      githubUrl: "https://github.com/mattsilv/silv-learn",
-      category: "app",
-      launchDate: "2025-04-11",
-    },
-    {
-      id: 10,
-      title: "Win95 notes",
-      description:
-        "A simple app to pass someone a note in the old Windows 95 Notepad style interface, the text of the note is passed in the URL with a very simplistic cipher.",
-      link: "https://win95.silv.app/?t=filename.txt&c=khoor%2520zruog",
-      category: "app",
-      launchDate: "2025-05-19",
-    },
-    {
-      id: 11,
-      title: "FEELINGS",
-      description:
-        "An interactive vocabulary builder focused on emotional expression. Expand your range of feeling words to communicate with greater precision and self-awareness.",
-      link: "https://feelings.silv.app/",
-      category: "app",
-      launchDate: "2025-06-04",
     },
   ];
 

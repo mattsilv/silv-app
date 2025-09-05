@@ -99,7 +99,7 @@ const ProjectGrid = ({ projects }) => {
   return (
     <>
       <GridWrapper>
-        <Title>apps</Title>
+        <Title>microapps</Title>
         <Grid>
           {appProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />

@@ -54,7 +54,7 @@ const ProjectGrid = ({ projects }) => {
         setBlogLoading(true);
         const timestamp = new Date().getTime();
         const response = await fetch(
-          `https://www.silv.blog/index.xml?_=${timestamp}`
+          `https://silv.blog/index.xml?_=${timestamp}`
         );
 
         if (!response.ok) {

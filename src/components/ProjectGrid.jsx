@@ -47,23 +47,34 @@ const ProjectGrid = ({ projects }) => {
     (project) => project.category === "utility"
   );
 
-  // Fetch blog posts from WordPress API
+  // Fetch blog posts from Hugo RSS feed
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
         setBlogLoading(true);
-        // Add timestamp to prevent browser caching
         const timestamp = new Date().getTime();
         const response = await fetch(
-          `https://silv.blog/wp-json/wp/v2/posts?per_page=3&_fields=id,title,excerpt,link,date&_=${timestamp}`
+          `https://www.silv.blog/index.xml?_=${timestamp}`
         );
 
         if (!response.ok) {
           throw new Error(`Failed to fetch blog posts: ${response.status}`);
         }
 
-        const data = await response.json();
-        setBlogPosts(data);
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(xmlText, "text/xml");
+        const items = xml.querySelectorAll("item");
+
+        const posts = Array.from(items).slice(0, 3).map((item, index) => ({
+          id: index,
+          title: { rendered: item.querySelector("title")?.textContent || "" },
+          excerpt: { rendered: item.querySelector("description")?.textContent || "" },
+          link: item.querySelector("link")?.textContent || "",
+          date: item.querySelector("pubDate")?.textContent || "",
+        }));
+
+        setBlogPosts(posts);
         setBlogLoading(false);
       } catch (error) {
         console.error("Error fetching blog posts:", error);

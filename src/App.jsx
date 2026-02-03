@@ -44,13 +44,14 @@ const App = () => {
       category: "app",
       launchDate: "2025-06-04",
     },
+    // Archive (moved from apps)
     {
       id: 10,
       title: "Win95 notes",
       description:
         "A simple app to pass someone a note in the old Windows 95 Notepad style interface, the text of the note is passed in the URL with a very simplistic cipher.",
       link: "https://win95.silv.app/?t=filename.txt&c=khoor%2520zruog",
-      category: "app",
+      category: "archive",
       launchDate: "2025-05-19",
     },
     {
@@ -60,7 +61,7 @@ const App = () => {
         "a quiz to determine your learning style by generating an AI prompt to teach you any topic exactly how you need to learn it.",
       link: "https://learn.silv.app/",
       githubUrl: "https://github.com/mattsilv/silv-learn",
-      category: "app",
+      category: "archive",
       launchDate: "2025-04-11",
     },
     {

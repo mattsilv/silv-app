@@ -47,6 +47,10 @@ const ProjectGrid = ({ projects }) => {
     (project) => project.category === "utility"
   );
 
+  const archiveProjects = projects.filter(
+    (project) => project.category === "archive"
+  );
+
   // Fetch blog posts from Hugo RSS feed
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -130,6 +134,15 @@ const ProjectGrid = ({ projects }) => {
       <GridWrapper>
         <Title>latest from silv.blog</Title>
         <Grid>{renderBlogSection()}</Grid>
+      </GridWrapper>
+
+      <GridWrapper>
+        <Title>archive</Title>
+        <Grid>
+          {archiveProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </Grid>
       </GridWrapper>
     </>
   );

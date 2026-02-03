@@ -8,6 +8,24 @@ const App = () => {
   const thingies = [
     // Apps (newest to oldest)
     {
+      id: 15,
+      title: "QUOTES",
+      description:
+        "An app for saving and sharing memorable quotes.",
+      link: "https://quotes.silv.app/",
+      category: "app",
+      launchDate: "2026-02-01",
+    },
+    {
+      id: 14,
+      title: "COINDEX",
+      description:
+        "A site for precious metals and numismatic enthusiasts.",
+      link: "https://coindex.app/",
+      category: "app",
+      launchDate: "2025-12-01",
+    },
+    {
       id: 13,
       title: "SIGN PDF",
       description:

@@ -8,6 +8,16 @@ const App = () => {
   const thingies = [
     // Apps (newest to oldest)
     {
+      id: 16,
+      title: "ROBO",
+      description:
+        "Get context from the real world into your AI agents. Created for the Claude Code hackathon.",
+      link: "https://www.robo.app",
+      githubUrl: "https://github.com/mattsilv/robo",
+      category: "app",
+      launchDate: "2026-02-16",
+    },
+    {
       id: 15,
       title: "QUOTES",
       description:
@@ -85,6 +95,16 @@ const App = () => {
       launchDate: "2025-03-14",
     },
     // Utilities (newest to oldest)
+    {
+      id: 17,
+      title: "SVG DROP",
+      description:
+        "Paste SVG code from AI tools, preview it instantly, and download it as a ready-to-use image.",
+      link: "https://svg.silv.app/",
+      githubUrl: "https://github.com/mattsilv/svg",
+      category: "utility",
+      launchDate: "2026-02-20",
+    },
     {
       id: 12,
       title: "COMMODITIES API",
